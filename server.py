@@ -1,3 +1,7 @@
+"""
+This module contains a Flask application for emotion detection.
+"""
+
 from flask import Flask, render_template, request
 from EmotionDetection.emotion_detection import emotion_detector
 
@@ -10,7 +14,7 @@ def emo_detector():
     """
     text_to_analyze = request.args.get('textToAnalyze')
     if text_to_analyze is None or text_to_analyze.strip() == "":
-        return "Invalid text! Please provide text to analyze.", 400
+        return "Invalid text! Please try again", 400
 
     response = emotion_detector(text_to_analyze)
     if response is None:
